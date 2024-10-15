@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iris Flower Prediction App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f4f8;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: white;
+            padding: 40px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            max-width: 600px;
+            width: 100%;
+        }
+
+        h1 {
+            text-align: center;
+            color: #2a9d8f;
+        }
+
+        .sidebar {
+            margin-bottom: 20px;
+        }
+
+        .slider {
+            margin-bottom: 15px;
+        }
+
+        .label {
+            font-weight: bold;
+            color: #264653;
+        }
+
+        input[type="range"] {
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .output {
+            margin-top: 20px;
+            background-color: #e9ecef;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 1.1em;
+            text-align: center;
+        }
+
+        .prediction-container {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .button {
+            background-color: #2a9d8f;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+        }
+
+        .button:hover {
+            background-color: #21867a;
+        }
+
+        footer {
+            margin-top: 30px;
+            text-align: center;
+            color: #aaa;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Simple Iris Flower Prediction App</h1>
+    <p>This app predicts the <strong>Iris flower</strong> type!</p>
+
+    <div class="sidebar">
+        <div class="slider">
+            <label class="label" for="sepal_length">Sepal Length</label>
+            <input type="range" id="sepal_length" name="sepal_length" min="4.3" max="7.9" step="0.1" value="5.4">
+        </div>
+
+        <div class="slider">
+            <label class="label" for="sepal_width">Sepal Width</label>
+            <input type="range" id="sepal_width" name="sepal_width" min="2.0" max="4.4" step="0.1" value="3.4">
+        </div>
+
+        <div class="slider">
+            <label class="label" for="petal_length">Petal Length</label>
+            <input type="range" id="petal_length" name="petal_length" min="1.0" max="6.9" step="0.1" value="1.3">
+        </div>
+
+        <div class="slider">
+            <label class="label" for="petal_width">Petal Width</label>
+            <input type="range" id="petal_width" name="petal_width" min="0.1" max="2.5" step="0.1" value="0.2">
+        </div>
+    </div>
+
+    <div class="output">
+        <p><strong>User Input Parameters:</strong></p>
+        <p>Sepal Length: <span id="sepal_length_output">5.4</span> cm</p>
+        <p>Sepal Width: <span id="sepal_width_output">3.4</span> cm</p>
+        <p>Petal Length: <span id="petal_length_output">1.3</span> cm</p>
+        <p>Petal Width: <span id="petal_width_output">0.2</span> cm</p>
+    </div>
+
+    <div class="prediction-container">
+        <button class="button" onclick="makePrediction()">Predict Iris Type</button>
+        <p class="output" id="prediction_result">Prediction result will appear here.</p>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Iris Flower Prediction App</p>
+    </footer>
+</div>
+
+<script>
+    const sepalLengthSlider = document.getElementById("sepal_length");
+    const sepalWidthSlider = document.getElementById("sepal_width");
+    const petalLengthSlider = document.getElementById("petal_length");
+    const petalWidthSlider = document.getElementById("petal_width");
+
+    const sepalLengthOutput = document.getElementById("sepal_length_output");
+    const sepalWidthOutput = document.getElementById("sepal_width_output");
+    const petalLengthOutput = document.getElementById("petal_length_output");
+    const petalWidthOutput = document.getElementById("petal_width_output");
+
+    sepalLengthSlider.oninput = function() {
+        sepalLengthOutput.innerHTML = this.value;
+    };
+
+    sepalWidthSlider.oninput = function() {
+        sepalWidthOutput.innerHTML = this.value;
+    };
+
+    petalLengthSlider.oninput = function() {
+        petalLengthOutput.innerHTML = this.value;
+    };
+
+    petalWidthSlider.oninput = function() {
+        petalWidthOutput.innerHTML = this.value;
+    };
+
+    function makePrediction() {
+        // Mock function for prediction
+        const predictionResult = document.getElementById("prediction_result");
+        predictionResult.innerHTML = "Iris Setosa";  // This would be replaced with actual prediction logic
+    }
+</script>
+
+</body>
+</html>
